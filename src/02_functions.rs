@@ -14,6 +14,7 @@ fn main() {
 
     // 函数表达式
     let square = |x: i32| -> i32 { x * x };
+    let square = |x| x * x;//也不以可不指定类型
     println!("5的平方是: {}", square(5));
 }
 

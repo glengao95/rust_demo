@@ -33,11 +33,11 @@ fn main() {
     let user3 = User {
         username: String::from("user3"),
         email: String::from("user3@example.com"),
-        ..user2 // 使用user2的其他字段值
+        ..user2 // 使用user2的其他字段值 展开user2的字段 同名的以user3的为准,未定义的以user2的为准
     };
     println!("用户3的登录次数: {}", user3.sign_in_count);
 
-    // 元组结构体
+    // 元组结构体 类似go中的type
     struct Color(i32, i32, i32);
     let black = Color(0, 0, 0);
     println!("黑色RGB值: ({}, {}, {})", black.0, black.1, black.2);

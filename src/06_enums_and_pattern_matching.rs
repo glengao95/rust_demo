@@ -22,6 +22,7 @@ fn main() {
 
     // 模式匹配
     let some_number = Some(5);
+    //match匹配 类似java中的switch case
     match some_number {
         Some(i) => println!("Matched: {}", i),
         None => println!("No value"),

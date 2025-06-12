@@ -22,11 +22,11 @@ fn main() {
 
     // 在let语句中使用if
     let condition = true;
-    let number = if condition { 5 } else { 6 };
+    let number = if condition { 5 } else { 6 };//三元运算
     println!("number的值为: {}", number);
 
     // 循环
-    // loop循环
+    // loop循环 无线循环 break结束
     let mut count = 0;
     loop {
         count += 1;
@@ -50,7 +50,7 @@ fn main() {
         println!("元素值为: {}", element);
     }
 
-    // Range与for循环
+    // Range与for循环 rev反转
     for number in (1..4).rev() {
         println!("{}", number);
     }

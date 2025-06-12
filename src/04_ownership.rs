@@ -10,14 +10,29 @@ fn main() {
 
     // 移动语义
     let s1 = String::from("hello");
+    println!("s1 栈空间内存地址: {:p}", &s1);
+    println!("s1 堆空间内存地址: {:p}", s1.as_ptr());
     let s2 = s1; // s1被移动到s2，s1不再有效
     println!("{}", s2);
+    println!("s2 栈空间内存地址: {:p}", &s2);
+    println!("s2 堆空间内存地址: {:p}", s2.as_ptr());
+
 
     // 克隆
     let s1 = String::from("hello");
+    println!("s1 栈空间内存地址: {:p}", &s1);
+    println!("s1 堆空间内存地址: {:p}", s1.as_ptr());
     let s2 = s1.clone(); // s1被克隆到s2，s1仍然有效
     println!("s1 = {}, s2 = {}", s1, s2);
+    println!("s2 栈空间内存地址: {:p}", &s2);
+    println!("s2 堆空间内存地址: {:p}", s2.as_ptr());
 
+    let a: i32 = 10;
+    let b = a;
+    println!(" a = {}, b = {}", a, b);// b赋值了a的值，a依然有效
+    println!("a 栈空间内存地址: {:p}", &a);
+    println!("b 栈空间内存地址: {:p}", &b);
+    
     // 函数与所有权
     let s = String::from("hello");
     takes_ownership(s); // s的所有权被移动到函数中

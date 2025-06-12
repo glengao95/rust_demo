@@ -97,7 +97,4 @@ fn main() {
     rc_example();
     arc_example();
     refcell_example();
-    cell_example();
-    mutex_example();
-    mutex_arc_example();
 }

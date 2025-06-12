@@ -1,9 +1,11 @@
 // 11_traits.rs
 // Trait
-
+//类似java接口
+use std::fmt::Display;
+use std::fmt::Debug;
 // 定义Trait
 pub trait Summary {
-    fn summarize(&self) -> String;
+    fn summarize(&self) -> String;//&self类似java的this
 }
 
 // 实现Trait
@@ -45,18 +47,19 @@ fn notify(item: &impl Summary) {
     println!("新闻快讯! {}", item.summarize());
 }
 
-// Trait Bound语法
-fn notify<T: Summary>(item: &T) {
+// Trait Bound语法 必须实现了Summary
+fn notify_with_summary<T: Summary>(item: &T) {
     println!("新闻快讯! {}", item.summarize());
 }
 
-// 多个Trait Bound
+// 多个Trait Bound  必须实现了Summary和Display
 fn notify_multiple(item: &(impl Summary + Display)) {
     println!("新闻快讯! {}", item.summarize());
 }
 
 // 使用where子句
 fn some_function<T, U>(t: &T, u: &U) -> i32
+//T必须实现Display和Clone, U必须实现Clone和Debug
 where
     T: Display + Clone,
     U: Clone + Debug,
@@ -65,7 +68,7 @@ where
     0
 }
 
-// 返回实现Trait的类型
+// 返回实现Trait的类型  返回了Summart接口实现
 fn returns_summarizable() -> impl Summary {
     Tweet {
         username: String::from("horse_ebooks"),
